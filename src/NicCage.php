@@ -4,7 +4,7 @@ namespace Cornelisonc\FamousUserSeeder;
 
 class NicCage extends FamousUserSeeder
 {
-    private $data = [
+    protected $data = [
         [
             'first' => 'Vincent',
             'last' => 'Dwyer'
