@@ -1,0 +1,18 @@
+{
+    "name": "cornelisonc/famous-user-seeder",
+    "description": "Laravel database UserSeeder assistant -- make your users famous!",
+    "type": "library",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Cornelisonc\\FamousUserSeeder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ceili Cornelison",
+            "email": "ccornelison@elevatodigital.com"
+        }
+    ]
+}
