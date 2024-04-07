@@ -3,10 +3,11 @@
 namespace Cornelisonc\FamousUserSeeder;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 abstract class FamousUserSeeder
 {
-    private $data;
+    protected $data;
 
     public function __construct()
     {
@@ -45,7 +46,14 @@ abstract class FamousUserSeeder
             foreach ($fields as $alias => $field) {
                 $key = is_string($alias) ? $alias : $field;
 
-                $nodeElement[$key] = $this->$field($node);
+                if (method_exists($this, $field)) {
+                    $nodeElement[$key] = $this->$field($node);
+                } else {
+                    // Key function does not exist, return random
+                    // @TODO: allow aliased field names and types,
+                    // eg string int &c
+                    $nodeElement[$key] = Str::random(10);
+                }
             }
 
             $out[] = $nodeElement;
