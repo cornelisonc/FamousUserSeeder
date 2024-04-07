@@ -331,8 +331,11 @@ class NicCage extends FamousUserSeeder
 
         foreach ($filtered as $node) {
             $nodeElement = [];
-            foreach ($fields as $field) {
-                $nodeElement[$field] = $this->$field($node);
+
+            foreach ($fields as $alias => $field) {
+                $key = is_string($alias) ? $alias : $field;
+
+                $nodeElement[$key] = $this->$field($node);
             }
 
             $out[] = $nodeElement;
