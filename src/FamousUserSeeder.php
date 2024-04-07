@@ -80,9 +80,10 @@ abstract class FamousUserSeeder
     protected function email($node)
     {
         return strtolower(sprintf(
-            '%s.%s@users.com',
+            '%s.%s@%s.com',
             preg_replace('/[^\da-z]/i', '', $node['first']),
             preg_replace('/[^\da-z]/i', '', $node['last']),
+            Str::random(10)
         ));
     }
 
