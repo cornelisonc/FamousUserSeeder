@@ -30,8 +30,8 @@ abstract class FamousUserSeeder
     {
         return strtolower(sprintf(
             '%s.%s@users.com',
-            preg_replace("/[^A-Z]+/", "", $node['first']),
-            preg_replace("/[^A-Z]+/", "", $node['last'])
+            preg_replace('/[^\da-z]/i', '', $node['first']),
+            preg_replace('/[^\da-z]/i', '', $node['last']),
         ));
     }
 }
