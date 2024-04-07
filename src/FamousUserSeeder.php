@@ -25,4 +25,13 @@ abstract class FamousUserSeeder
     {
         return $node['first'] . ' ' . $node['last'];
     }
+
+    public function email($node)
+    {
+        return strtolower(sprintf(
+            '%s.%s@users.com',
+            preg_replace("/[^A-Z]+/", "", $node['first']),
+            preg_replace("/[^A-Z]+/", "", $node['last'])
+        ));
+    }
 }
