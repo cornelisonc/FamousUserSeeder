@@ -2,6 +2,7 @@
     "name": "cornelisonc/famous-user-seeder",
     "description": "Laravel database UserSeeder assistant -- make your users famous!",
     "type": "library",
+    "version": "v1.0.0",
     "require": {
         "illuminate/support": "^11.2"
     },
