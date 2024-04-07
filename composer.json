@@ -3,6 +3,7 @@
     "description": "Laravel database UserSeeder assistant -- make your users famous!",
     "type": "library",
     "require": {
+        "illuminate/support": "^11.2"
     },
     "autoload": {
         "psr-4": {
