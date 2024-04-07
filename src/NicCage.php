@@ -304,12 +304,12 @@ class NicCage extends FamousUserSeeder
         $out        = [];
 
         while (sizeof($out) < $quantity) {
-            $shuffled   = shuffle($this->data);
+            shuffle($this->data);
 
-            if (sizeof($shuffled) >= $quantity) {
-                $out = array_slice($shuffled, 0, $quantity);
+            if (sizeof($this->data) >= $quantity) {
+                $out = array_slice($this->data, 0, $quantity);
             } else {
-                $out = array_push($out, $shuffled);
+                $out = array_push($out, $this->data);
             }
         }
 
