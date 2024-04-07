@@ -2,6 +2,8 @@
 
 namespace Cornelisonc\FamousUserSeeder;
 
+use Illuminate\Support\Facades\Hash;
+
 abstract class FamousUserSeeder
 {
     private $data;
@@ -33,5 +35,10 @@ abstract class FamousUserSeeder
             preg_replace('/[^\da-z]/i', '', $node['first']),
             preg_replace('/[^\da-z]/i', '', $node['last']),
         ));
+    }
+
+    public function password($node)
+    {
+        return Hash::make($node['first'] . ' ' . $node['last']);
     }
 }
