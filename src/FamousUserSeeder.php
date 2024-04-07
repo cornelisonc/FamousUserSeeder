@@ -13,22 +13,63 @@ abstract class FamousUserSeeder
         echo 'FamousUserSeeder';
     }
 
-    public function firstName($node)
+    /**
+     * @param int $quantity
+     *
+     * @param array $fields
+     * $fields = [
+     *      'firstName',
+     *      'lastName',
+     *      'fullName,
+     * ];
+     *
+     * @return array
+     */
+    public function get($quantity = 1, $fields = [])
+    {
+        $filtered = [];
+
+        while (sizeof($filtered) < $quantity) {
+            shuffle($this->data);
+
+            if (sizeof($this->data) >= $quantity) {
+                $filtered = array_slice($this->data, 0, $quantity);
+            } else {
+                $filtered = array_push($out, $this->data);
+            }
+        }
+
+        foreach ($filtered as $node) {
+            $nodeElement = [];
+
+            foreach ($fields as $alias => $field) {
+                $key = is_string($alias) ? $alias : $field;
+
+                $nodeElement[$key] = $this->$field($node);
+            }
+
+            $out[] = $nodeElement;
+        }
+
+        return $out;
+    }
+
+    protected function firstName($node)
     {
         return $node['first'];
     }
 
-    public function lastName($node)
+    protected function lastName($node)
     {
         return $node['last'];
     }
 
-    public function fullName($node)
+    protected function fullName($node)
     {
         return $node['first'] . ' ' . $node['last'];
     }
 
-    public function email($node)
+    protected function email($node)
     {
         return strtolower(sprintf(
             '%s.%s@users.com',
@@ -37,7 +78,7 @@ abstract class FamousUserSeeder
         ));
     }
 
-    public function password($node)
+    protected function password($node)
     {
         return Hash::make($node['first'] . ' ' . $node['last']);
     }

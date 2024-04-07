@@ -302,45 +302,4 @@ class NicCage extends FamousUserSeeder
     public function __construct()
     {
     }
-
-    /**
-     * @param int $quantity
-     *
-     * @param array $fields
-     * $fields = [
-     *      'firstName',
-     *      'lastName',
-     *      'fullName,
-     * ];
-     *
-     * @return array
-     */
-    public function get($quantity = 1, $fields = [])
-    {
-        $filtered = [];
-
-        while (sizeof($filtered) < $quantity) {
-            shuffle($this->data);
-
-            if (sizeof($this->data) >= $quantity) {
-                $filtered = array_slice($this->data, 0, $quantity);
-            } else {
-                $filtered = array_push($out, $this->data);
-            }
-        }
-
-        foreach ($filtered as $node) {
-            $nodeElement = [];
-
-            foreach ($fields as $alias => $field) {
-                $key = is_string($alias) ? $alias : $field;
-
-                $nodeElement[$key] = $this->$field($node);
-            }
-
-            $out[] = $nodeElement;
-        }
-
-        return $out;
-    }
 }
