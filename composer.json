@@ -3,6 +3,7 @@
     "description": "Laravel database UserSeeder assistant -- make your users famous!",
     "type": "library",
     "version": "v1.1.0",
+    "license": "MIT",
     "require": {
         "illuminate/support": "^11.2"
     },
