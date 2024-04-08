@@ -93,4 +93,4 @@ array([
 
 Email addresses are formatted using the user's first & last name seperated by a period, with the domain name likeiwse a randomized string to provide unique email addresses.
 
-![implementation example](https://github.com/cornelisonc/FamousUserSeeder/blob/main/png.jpg?raw=true)
+![implementation example](https://github.com/cornelisonc/FamousUserSeeder/blob/bd169a9302e45cc7d89c869cf38f945c4300e2e1/image.png?raw=true)
